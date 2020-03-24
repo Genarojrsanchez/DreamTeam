@@ -1,2 +1,4 @@
 # DreamTeam
-# Genaro 
+#EvanHaegele
+#Courtney Zavaleta
+#Genaro Sanchez
