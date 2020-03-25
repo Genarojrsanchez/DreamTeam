@@ -5,30 +5,32 @@ require("dotenv").config();
 const session = require('express-sessions');
 const db = mongoose.connection;
 
-
+// ======middleware=====
 app.use(express.json());
 app.use(express.static('public'));
-app.use(session({
-    secret:'feedmeseymour',
-    resave:false,
-    saveUninitialized:false
-}));
+// app.use(session({
+//     secret:'feedmeseymour',
+//     resave:false,
+//     saveUninitialized:false
+// }));
 
 //CONTROLLERS
-app.get("/", (req, res) => {
-  console.log("hello world");
+const drinksController = require('./controllers/drinks.js');
+app.use('/tipsy', drinksController);
+app.get("/tipsy", (req, res) => {
+  console.log("first page working");
 })
 
 //
 
 
-mongoose.connect('mongodb://localhost:27017/tipsy', {useNewUrlParser:true, useUnifiedTopology: true, useFindAndModify: false});
+mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser:true, useUnifiedTopology: true, useFindAndModify: false});
 mongoose.connection.once('open', () => {
     console.log('connected to mongoose');
 })
 
-app.listen(3000, () => {
-    console.log(`listening on ${process.env.PORT}`);
+app.listen(process.env.PORT, () => {
+    console.log(`listening on port`);
 })
 
 
