@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Genarojrsanchez/DreamTeam#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-sessions": "^1.0.6",
     "mongoose": "^5.9.6"
