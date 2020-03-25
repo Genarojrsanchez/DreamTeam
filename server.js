@@ -15,7 +15,9 @@ app.use(session({
 }));
 
 //CONTROLLERS
-
+app.get("/", (req, res) => {
+  console.log("hello world");
+})
 
 //
 
