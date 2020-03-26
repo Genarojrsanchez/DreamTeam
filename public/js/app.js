@@ -97,12 +97,11 @@ this.login = function(){
 $http({
   method:"GET",
   url:"/session"
-}).then(function(response);{
+}).then(function(response){
   if(response.data.username){
     controller.loggedInUser = response.data
   }
 });
-
 
 //LOGOUT
 this.logout = function(){
