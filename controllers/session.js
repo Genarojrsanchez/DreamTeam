@@ -27,7 +27,9 @@ router.post("/", (req, res) => {
 
 // ======GetSessionRoute======
 router.get("/", (req, res) => {
-  res.json(req.session.user);
+  User.findOne({username:req.body.username}, (err, foundUser) => {
+    res.json(foundUser);
+  })
 })
 
 // ======DeleteSessionRoute=====

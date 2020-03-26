@@ -93,15 +93,25 @@ this.login = function(){
   })
 }
 
+// ====cookiesFunction====
 $http({
-  method:'GET',
-  url:'/session'
-}).then(function(response){
+  method:"GET",
+  url:"/session"
+}).then(function(response);{
   if(response.data.username){
-    controller.loggedIn = response.data;
+    controller.loggedInUser = response.data
   }
-})
+});
+
 
 //LOGOUT
+this.logout = function(){
+  $http({
+    url: "/session",
+    method:"DELETE"
+  }).then(function(){
+    controller.loggedInUser = false
+  })
+}
 
 }]);
