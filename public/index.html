@@ -8,6 +8,34 @@
     <link rel="stylesheet" href="/css/style.css">
   </head>
   <body ng-controller="MainController as ctrl">
+    <ul>
+      <li ng-repeat="drink in ctrl.drinks">
+        Name: {{drink.name}}<br/>
+        Instructions: {{drink.instructions}}<br/>
+        Ingredients: {{drink.ingredients}}<br/>
 
+        <a
+          href="#"
+          ng-if="$index !== ctrl.editFormShown"
+          ng-click="ctrl.editFormShown = $index">
+          Edit Drink
+       </a>
+
+        <form
+        ng-if="$index === ctrl.editFormShown"
+        ng-submit="ctrl.editDrinks(drink);">
+          <input type="text" ng-model="ctrl.updatedName" placeholder="Name" />
+          <input type="text" ng-model="ctrl.updatedInstructions" placeholder="Instructions" />
+          <input type="text" ng-model="ctrl.updatedIngredients" placeholder="Ingredients" />
+          <input type="submit" value="Update Drink"/>
+      </form>
+      </li>
+    </ul>
+      <form ng-submit="ctrl.createDrink()">
+        <input type="text" ng-model="ctrl.name" placeholder="name" />
+        <input type="text" ng-model="ctrl.instructions" placeholder="instructions" />
+        <input type="text" ng-model="ctrl.ingredients" placeholder="ingredients" />
+        <input type="submit" value="Create Drink" />
+      </form>
   </body>
 </html>

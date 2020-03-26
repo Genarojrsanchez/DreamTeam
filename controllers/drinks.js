@@ -11,8 +11,7 @@ router.get("/", (req, res) => {
 
 //POST
 router.post("/", (req, res) => {
-  Drinks.create(req.body, (err, createdDrinks)
-  => {
+  Drinks.create(req.body, (err, createdDrinks) => {
     res.json(createdDrinks)
   })
 })
