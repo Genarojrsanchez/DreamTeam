@@ -20,6 +20,8 @@ app.use('/tipsy', drinksController);
 app.get("/tipsy", (req, res) => {
   console.log("first page working");
 })
+const sessionController = require('./controllers/session.js');
+app.use('/session', sessionController);
 
 //
 
