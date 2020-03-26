@@ -93,6 +93,15 @@ this.login = function(){
   })
 }
 
+$http({
+  method:'GET',
+  url:'/session'
+}).then(function(response){
+  if(response.data.username){
+    controller.loggedIn = response.data;
+  }
+})
+
 //LOGOUT
 
 }]);
