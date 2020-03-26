@@ -8,11 +8,11 @@ const db = mongoose.connection;
 // ======middleware=====
 app.use(express.json());
 app.use(express.static('public'));
-// app.use(session({
-//     secret:'feedmeseymour',
-//     resave:false,
-//     saveUninitialized:false
-// }));
+app.use(session({
+    secret:'feedmeseymour',
+    resave:false,
+    saveUninitialized:false
+}));
 
 //CONTROLLERS
 const drinksController = require('./controllers/drinks.js');
