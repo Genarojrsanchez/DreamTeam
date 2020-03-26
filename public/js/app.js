@@ -94,7 +94,14 @@ this.login = function(){
 }
 
 // ====cookiesFunction====
-
+$http({
+  method:"GET",
+  url:"/session"
+}).then(function(response);{
+  if(response.data.username){
+    controller.loggedInUser = response.data
+  }
+});
 
 
 //LOGOUT
