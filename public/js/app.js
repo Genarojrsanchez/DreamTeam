@@ -93,6 +93,18 @@ this.login = function(){
   })
 }
 
+// ====cookiesFunction====
+
+
+
 //LOGOUT
+this.logout = function(){
+  $http({
+    url: "/session",
+    method:"DELETE"
+  }).then(function(){
+    controller.loggedInUser = false
+  })
+}
 
 }]);
