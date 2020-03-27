@@ -3,12 +3,7 @@ const router = express.Router();
 const User = require('../models/users.js');
 const bcrypt = require("bcryptjs");
 //bcrypt route - need to figure out how to deal with since Z has to use bcrptyjs
-// ======GetSessionRoute======
-router.get("/", (req, res) => {
-  User.findOne({username:req.body.username}, (err, foundUser) => {
-    res.json(foundUser);
-  })
-})
+
 
 // ===RouterRoute(POST)====
 router.post("/", (req, res) => {
@@ -31,7 +26,10 @@ router.post("/", (req, res) => {
   });
 });
 
-
+// ======GetSessionRoute======
+router.get("/", (req, res) => {
+  res.json(req.session.user);
+})
 
 // ======DeleteSessionRoute=====
 router.delete("/", (req,res) => {
