@@ -15,6 +15,7 @@
     <div ng-if="ctrl.loggedIn === false" class="login">
 
       <form ng-submit="ctrl.signup()">
+        <h1>Tipsy</h1>
          <input type="text" placeholder="Username" ng-model="ctrl.signupUsername"/>
         <br/>
        <input type="password" placeholder="Password" ng-model="ctrl.signupPassword"/>
@@ -41,7 +42,7 @@
         <a
           href="#"
           ng-if="$index !== ctrl.editFormShown"
-          ng-click="ctrl.editFormShown = $index" class="text-success">
+          ng-click="ctrl.editFormShown = $index" >
           Edit Drink
        </a>
 
@@ -57,13 +58,14 @@
       <button ng-click="ctrl.deleteDrinks(drink)">Delete Drink</button>
       </li>
     </ul>
-    
+
       <form ng-submit="ctrl.createDrink()">
         <input type="text" ng-model="ctrl.name" placeholder="name" />
         <input type="text" ng-model="ctrl.instructions" placeholder="instructions" />
         <input type="text" ng-model="ctrl.ingredients" placeholder="ingredients" />
         <input type="submit" value="Create Drink" />
       </form>
+      <button ng-click="ctrl.logout()">Log Out</button>
     </div>
   </body>
 </html>
