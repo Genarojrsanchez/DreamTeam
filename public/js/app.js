@@ -63,7 +63,7 @@ this.deleteDrinks = function(drink){
 //SIGNUP
 this.signup = function(){
   $http({
-    url:'/tipsy',
+    url:'/users',
     method:'POST',
     data: {
       username: this.signupUsername,
@@ -94,14 +94,15 @@ this.login = function(){
 }
 
 // ====cookiesFunction====
-$http({
-  method:"GET",
-  url:"/session"
-}).then(function(response){
-  if(response.data.username){
-    controller.loggedInUser = response.data
-  }
-});
+// $http({
+//   method:"GET",
+//   url:"/session"
+// }).then(function(response){
+//   console.log(response);
+//   if(response.data){
+//     controller.loggedIn = response.data
+//   }
+// });
 
 //LOGOUT
 this.logout = function(){
@@ -109,7 +110,7 @@ this.logout = function(){
     url: "/session",
     method:"DELETE"
   }).then(function(){
-    controller.loggedInUser = false
+    controller.loggedIn = false
   })
 }
 
