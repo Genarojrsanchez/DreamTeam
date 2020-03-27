@@ -99,7 +99,7 @@ $http({
   url:"/session"
 }).then(function(response){
   if(response.data.username){
-    controller.loggedInUser = response.data
+    controller.loggedIn = response.data
   }
 });
 
@@ -109,7 +109,7 @@ this.logout = function(){
     url: "/session",
     method:"DELETE"
   }).then(function(){
-    controller.loggedInUser = false
+    controller.loggedIn = false
   })
 }
 
