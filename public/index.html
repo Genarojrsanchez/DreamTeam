@@ -11,21 +11,21 @@
 
   </head>
   <body ng-controller="MainController as ctrl">
-  
+
     <div ng-if="ctrl.loggedIn === false" class="login">
 
       <form ng-submit="ctrl.signup()">
-        Username: <input type="text" ng-model="ctrl.signupUsername"/>
+         <input type="text" placeholder="Username" ng-model="ctrl.signupUsername"/>
         <br/>
-        Password: <input type="password" ng-model="ctrl.signupPassword"/>
+       <input type="password" placeholder="Password" ng-model="ctrl.signupPassword"/>
         <br/>
         <input type="submit" value="Sign Up" />
       </form>
 
       <form ng-submit="ctrl.login()">
-        Username: <input type="text" ng-model="ctrl.loginUsername"/>
+         <input type="text" placeholder="Username" ng-model="ctrl.loginUsername"/>
         <br/>
-        Password: <input type="password" ng-model="ctrl.loginPassword"/>
+         <input type="password" placeholder="Password"ng-model="ctrl.loginPassword"/>
         <br/>
         <input type="submit" value="Log In" />
       </form>
@@ -57,6 +57,7 @@
       <button ng-click="ctrl.deleteDrinks(drink)">Delete Drink</button>
       </li>
     </ul>
+    
       <form ng-submit="ctrl.createDrink()">
         <input type="text" ng-model="ctrl.name" placeholder="name" />
         <input type="text" ng-model="ctrl.instructions" placeholder="instructions" />
