@@ -15,7 +15,7 @@ this.getDrinks = function(){
   });
 };
 
-this.getDrinks();
+
 
 //CREATE DRINK
 this.createDrink = function(){
@@ -92,17 +92,17 @@ this.login = function(){
     }
   })
 }
-
+this.getDrinks();
 // ====cookiesFunction====
-// $http({
-//   method:"GET",
-//   url:"/session"
-// }).then(function(response){
-//   console.log(response);
-//   if(response.data){
-//     controller.loggedIn = response.data
-//   }
-// });
+$http({
+  method:"GET",
+  url:"/session"
+}).then(function(response){
+  console.log(response);
+  if(response.data.username){
+    controller.loggedIn = response.data
+  }
+});
 
 //LOGOUT
 this.logout = function(){
