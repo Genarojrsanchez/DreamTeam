@@ -30,8 +30,13 @@
         <input type="submit" value="Log In" />
       </form>
     </div>
+<<<<<<< HEAD
     <div class="drinks" ng-if="ctrl.loggedIn !== false">
       <h2 class="h1">Welcome {{ctrl.loggedIn.username}}</h2>
+=======
+    <div ng-if="ctrl.loggedIn !== false">
+      <h2>Welcome {{ctrl.loggedIn.username}}</h2>
+>>>>>>> 320b201a98220dac6ccd5c5e94ca0a73ec911448
     <ul>
       <li ng-repeat="drink in ctrl.drinks">
         <span class="name">Name:</span> {{drink.name}}<br/>
