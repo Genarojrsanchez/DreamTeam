@@ -33,6 +33,7 @@
     </div>
     <div class="drinks" ng-if="ctrl.loggedIn !== false">
       <h2 class="h1">Welcome {{ctrl.loggedIn.username}}</h2>
+        <button ng-click="ctrl.logout()">Log Out</button>
     <ul>
       <li ng-repeat="drink in ctrl.drinks">
         <span class="name">Name:</span> {{drink.name}}<br/>
@@ -65,7 +66,6 @@
         <input type="text" ng-model="ctrl.ingredients" placeholder="ingredients" />
         <input type="submit" value="Create Drink" />
       </form>
-      <button ng-click="ctrl.logout()">Log Out</button>
     </div>
   </body>
 </html>
