@@ -113,7 +113,11 @@ this.logout = function(){
     url: "/session",
     method:"DELETE"
   }).then(function(){
-    controller.loggedIn = false
+    controller.loggedIn = false;
+    controller.loginUsername = null;
+    controller.loginPassword = null;
+    controller.signupUsername = null;
+    controller.signupPassword = null;
   })
 }
 
