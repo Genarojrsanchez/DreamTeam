@@ -2,24 +2,28 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 require("dotenv").config();
-const session = require('express-sessions');
+const bcrypt = require("bcryptjs")
+const session = require('express-session');
 const db = mongoose.connection;
 
 // ======middleware=====
 app.use(express.json());
 app.use(express.static('public'));
-// app.use(session({
-//     secret:'feedmeseymour',
-//     resave:false,
-//     saveUninitialized:false
-// }));
+app.use(session({
+    secret:'feedmeseymour',
+    resave:false,
+    saveUninitialized:false
+}));
 
 //CONTROLLERS
 const drinksController = require('./controllers/drinks.js');
 app.use('/tipsy', drinksController);
-app.get("/tipsy", (req, res) => {
-  console.log("first page working");
-})
+
+const usersController = require("./controllers/users.js");
+app.use("/users", usersController);
+
+const sessionController = require('./controllers/session.js');
+app.use('/session', sessionController);
 
 //
 

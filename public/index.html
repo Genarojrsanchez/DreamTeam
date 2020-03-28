@@ -6,22 +6,48 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js" charset="utf-8"></script>
     <script src="/js/app.js" charset="utf-8"></script>
     <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=IM+Fell+Double+Pica+SC&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
   </head>
   <body ng-controller="MainController as ctrl">
+
+    <div ng-if="ctrl.loggedIn === false" class="login">
+
+      <form ng-submit="ctrl.signup()">
+        <h1>Tipsy</h1>
+         <input type="text" placeholder="Username" ng-model="ctrl.signupUsername"/>
+        <br/>
+       <input type="password" placeholder="Password" ng-model="ctrl.signupPassword"/>
+        <br/>
+        <input type="submit" value="Sign Up" />
+      </form>
+
+      <form ng-submit="ctrl.login()">
+         <input type="text" placeholder="Username" ng-model="ctrl.loginUsername"/>
+        <br/>
+         <input type="password" placeholder="Password"ng-model="ctrl.loginPassword"/>
+        <br/>
+        <input type="submit" value="Log In" />
+      </form>
+    </div>
+    <div class="drinks" ng-if="ctrl.loggedIn !== false">
+      <h2 class="h1">Welcome {{ctrl.loggedIn.username}}</h2>
+        <button ng-click="ctrl.logout()">Log Out</button>
     <ul>
       <li ng-repeat="drink in ctrl.drinks">
-        Name: {{drink.name}}<br/>
-        Instructions: {{drink.instructions}}<br/>
-        Ingredients: {{drink.ingredients}}<br/>
+        <span class="name">Name:</span> {{drink.name}}<br/>
+    <span class="instructions">Instructions:</span>{{drink.instructions}}<br/>
+      <span class="ingredients">Ingredients:</span> {{drink.ingredients}}<br/>
 
         <a
           href="#"
           ng-if="$index !== ctrl.editFormShown"
-          ng-click="ctrl.editFormShown = $index">
+          ng-click="ctrl.editFormShown = $index" >
           Edit Drink
        </a>
 
-        <form
+        <form class="edit"
         ng-if="$index === ctrl.editFormShown"
         ng-submit="ctrl.editDrinks(drink);">
           <input type="text" ng-model="ctrl.updatedName" placeholder="Name" />
@@ -29,13 +55,17 @@
           <input type="text" ng-model="ctrl.updatedIngredients" placeholder="Ingredients" />
           <input type="submit" value="Update Drink"/>
       </form>
+      <br/>
+      <button ng-click="ctrl.deleteDrinks(drink)">Delete Drink</button>
       </li>
     </ul>
+
       <form ng-submit="ctrl.createDrink()">
         <input type="text" ng-model="ctrl.name" placeholder="name" />
         <input type="text" ng-model="ctrl.instructions" placeholder="instructions" />
         <input type="text" ng-model="ctrl.ingredients" placeholder="ingredients" />
         <input type="submit" value="Create Drink" />
       </form>
+    </div>
   </body>
 </html>

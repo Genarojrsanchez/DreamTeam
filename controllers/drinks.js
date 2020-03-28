@@ -26,7 +26,7 @@ router.put("/:id", (req, res) => {
 
 //DELETE
 
-router.put("/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
   Drinks.findByIdAndRemove(req.params.id, (err, deletedDrinks) => {
     res.json(deletedDrinks);
   })
