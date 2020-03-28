@@ -29,6 +29,9 @@ this.createDrink = function(){
     }
   }).then(function(response){
     controller.getDrinks();
+    controller.name = null;
+    controller.instructions = null;
+    controller.ingredients = null;
   },function(error){
     console.log(error);
   })
