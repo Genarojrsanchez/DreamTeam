@@ -33,17 +33,20 @@
     </div>
     <div class="drinks" ng-if="ctrl.loggedIn !== false">
       <h2 class="h1">Welcome {{ctrl.loggedIn.username}}</h2>
-        <button ng-click="ctrl.logout()">Log Out</button>
+        <button class="float-right" ng-click="ctrl.logout()">Log Out</button>
     <ul>
+      <div class="card"
       <li ng-repeat="drink in ctrl.drinks">
         <span class="name">Name:</span> {{drink.name}}<br/>
     <span class="instructions">Instructions:</span>{{drink.instructions}}<br/>
       <span class="ingredients">Ingredients:</span> {{drink.ingredients}}<br/>
 
+
+
         <a
           href="#"
           ng-if="$index !== ctrl.editFormShown"
-          ng-click="ctrl.editFormShown = $index" >
+          ng-click="ctrl.editFormShown = $index" class="text-dark">
           Edit Drink
        </a>
 
@@ -60,12 +63,14 @@
       </li>
     </ul>
 
-      <form ng-submit="ctrl.createDrink()">
+      <form class="create" ng-submit="ctrl.createDrink()">
         <input type="text" ng-model="ctrl.name" placeholder="name" />
         <input type="text" ng-model="ctrl.instructions" placeholder="instructions" />
         <input type="text" ng-model="ctrl.ingredients" placeholder="ingredients" />
         <input type="submit" value="Create Drink" />
       </form>
     </div>
+    </div>
+
   </body>
 </html>

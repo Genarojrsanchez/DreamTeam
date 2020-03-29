@@ -1,13 +1,15 @@
+
 body{
   background-image: url(https://cdn.hipwallpaper.com/i/8/67/ROMPLp.jpg);
   background-size: cover;
-
-
+  background-repeat: no-repeat;
 }
+
 h1{
   text-align: center;
   color: white;
   font-family: 'IM Fell Double Pica SC', serif;
+
 
 
 }
@@ -26,13 +28,16 @@ h2{
 
   display: block;
   text-align: right;
+  padding-right: 20px;
 }
 
 
 .drinks{
+
   background-image: url(https://images.squarespace-cdn.com/content/v1/56c1f5d501dbae6f070951c2/1458241536608-MK73AKSS2UHIAG6GS12X/ke17ZwdGBToddI8pDm48kCoeziwf20MZUkNXjkw-np57gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0sofvP-RiTb638-KOMjny0ulJZIW5bNf0iEh3URKvRqEh0LA3z6QXHtoQBgpzt0UtA/bwood.jpg?format=1500w);
   background-size: cover;
-  font-size: 25px;
+  background-repeat: no-repeat;
+  font-size: 18px;
   text-align: center;
   font-family: 'IM Fell Double Pica SC', serif;
   color: white;
@@ -44,20 +49,33 @@ ul{
   color: white;
   font-family: 'IM Fell Double Pica SC', serif;
   list-style: none;
+
 }
 .name{
-  font-size: 35px;
+  font-size: 30px;
   color: burlywood;
   font-weight: bold;
 }
 .instructions{
-  font-size: 35px;
+  font-size: 30px;
   color: burlywood;
   }
 .ingredients{
-  font-size: 35px;
+  font-size: 30px;
   color: burlywood;
 }
 button:hover{
   color:DarkGreen ;
+}
+div.card{
+   background-color: #404040;
+   width: 600px;
+   margin-top: 100px;
+   margin-left: auto;
+   margin-right: auto;
+
+}
+button.float-right{
+  margin-right: 20px;
+
 }
