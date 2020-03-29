@@ -29,6 +29,9 @@ this.createDrink = function(){
     }
   }).then(function(response){
     controller.getDrinks();
+    controller.name = null;
+    controller.instructions = null;
+    controller.ingredients = null;
   },function(error){
     console.log(error);
   })
@@ -110,7 +113,11 @@ this.logout = function(){
     url: "/session",
     method:"DELETE"
   }).then(function(){
-    controller.loggedIn = false
+    controller.loggedIn = false;
+    controller.loginUsername = null;
+    controller.loginPassword = null;
+    controller.signupUsername = null;
+    controller.signupPassword = null;
   })
 }
 
